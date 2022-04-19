@@ -1,0 +1,22 @@
+.app__header {
+  width: 100%;
+  height: 4rem;
+  background-color: rgb(255, 215, 53);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0%;
+   
+  .logo {
+    font-family: var(--font-logo);
+    font-size: 2rem;
+    margin-left: 2.5rem;
+    
+    span {
+      font-family: inherit;
+      background-color: rgb(28, 210, 56);
+      border-radius: 10px;
+      padding: 0 5px;
+    }
+  }
+}

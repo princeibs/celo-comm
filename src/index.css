@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins&family=Ubuntu&display=swap');
+
+:root {
+  --font-base: 'Ubuntu', sans-serif;
+  --font-logo: 'Lobster', cursive;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(210, 221, 223);
+}
+
+* {
+  font-family: var(--font-base);
+  /* border: solid 1px red; */
+}
