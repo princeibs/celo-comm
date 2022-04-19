@@ -1,7 +1,8 @@
 .app__blogPreview {
   display: flex;
-  // justify-content: center;
-  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  width: 98vw;
 
   .app__blogPreview-body {
     display: flex;
@@ -20,6 +21,7 @@
   border-radius: 10px;
 
   img {
+    cursor: pointer;
     object-fit: contain;
     width: 100%;
     border-top-left-radius: 10px;
@@ -31,6 +33,7 @@
     margin: 1rem;
 
     img {
+      cursor: pointer;
       background-color: rgb(197, 49, 197);
       width: 50px;
       height: 50px;
@@ -39,14 +42,22 @@
     }
 
     .content {
-      width: 100%;
+      width: 88%;
+
+      h2 {
+        cursor: pointer;
+        color: rgba(0, 0, 255, 0.794);
+      }
+
       .bottom {
         display: flex;
         justify-content: flex-end;
-        margin-right: 2rem;
-        .likes,
-        .comments {
-          margin: 0 0.3rem;
+
+        .likes {
+          color: red;
+          width: 3rem;
+          margin-right: 1em;
+          display: block ;
         }
       }
     }

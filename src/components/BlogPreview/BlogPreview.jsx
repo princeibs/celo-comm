@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./BlogPreview.scss";
+
+import BlogDetail from "../BlogDetail/BlogDetail";
 
 const content = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
 laboriosam qui unde? Aut tempora consequuntur et ea, incidunt dicta
@@ -17,7 +19,11 @@ Libero tenetur sequi quam ipsa eligendi beatae autem quas, iste fugit
 iusto qui. Accusantium, illum distinctio. Lorem ipsum dolor sit amet
 consectetur adipisicing elit. Quae praesentium quaerat saepe, soluta ut
 impedit laudantium eum ea, iste sequi hic error nulla cupiditate nihil
-expedita dolorum assumenda iure voluptas. Fugit, tempore quia numquam
+expedita dolorum assumenda iure voluptas.
+
+\n\n
+
+Fugit, tempore quia numquam
 adipisci saepe officiis quibusdam praesentium consequuntur consectetur
 rerum omnis. Magni iure sed dolores, voluptatibus minima ratione. Lorem
 ipsum dolor sit amet consectetur adipisicing elit. Eius sunt placeat
@@ -32,8 +38,9 @@ architecto dolorum error nobis mollitia aliquid fugit quasi! Excepturi
 doloribus laborum magni quibusdam est, nobis rem incidunt autem, porro
 expedita natus. Lorem ipsum, dolor sit amet consectetur adipisicing
 elit. Officia tempora alias suscipit aut consequatur, deserunt provident
-voluptate, aperiam itaque est repellat ea. Ab ex aliquid aperiam nulla,
-aut, facere illum, quisquam ipsa temporibus rem totam doloribus ducimus
+voluptate, aperiam itaque est repellat ea. 
+
+Ab ex aliquid aperiam nulla,aut, facere illum, quisquam ipsa temporibus rem totam doloribus ducimus
 eos minima consequuntur voluptatem quos error recusandae delectus id
 nemo dolores sequi consequatur? Fugiat eligendi commodi id nesciunt
 ipsum consequatur rerum obcaecati a similique praesentium cupiditate
@@ -50,6 +57,8 @@ ab perferendis excepturi praesentium illum, nemo commodi doloremque
 quasi voluptatem omnis vel. Provident, nulla necessitatibus? Eaque quas,
 magni ex suscipit architecto optio voluptate molestias nesciunt
 molestiae minima nam dolorum, voluptas consectetur corporis dolore eum!
+
+
 Corporis iusto cumque doloremque cum deserunt minus sapiente labore
 laudantium? Aspernatur similique sunt officia odit expedita alias,
 dolores minus a, doloribus repellat dolore? Optio. Lorem ipsum dolor sit
@@ -65,6 +74,8 @@ dolorem quo earum deleniti, temporibus doloremque fugiat vitae, error
 fugit soluta aliquam nemo. Perspiciatis molestias ut ipsa praesentium
 assumenda atque ipsum quas, quisquam qui eum eaque omnis ea quae dolore
 consequuntur dignissimos vitae commodi sunt eligendi nobis officia!
+
+
 Adipisci, nostrum, reiciendis nulla qui in dignissimos amet architecto
 natus perferendis hic officia labore non facere. Perspiciatis fugit
 accusamus laborum, esse natus similique rerum animi quo magni quidem?
@@ -77,16 +88,39 @@ inventore rem repudiandae? Sed, illum quae.`;
 
 const blogs = [
   {
-    imgUrl: "https://picsum.photos/seed/picsum/700/250",
+    coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
     authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
-    title: "Get out of Web2 now",
+    title: "Get out of Web2 now: The web is evolving into Web3.0",
     content: content,
     datePublished: "April 12",
     likesCount: 5,
     commentsCount: 16,
+    comments: [
+      {
+        author: "Somebody",
+        comment: `orem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
+      laboriosam qui unde? Aut tempora consequuntur et ea, incidunt dictatemporibus ratione repellendus a exercitationem laboriosam modi, rerum
+      deleniti, repudia reiciendis, ducimus reprehenderit nobis voluptas tempora aliquam officia
+      fuga necessitatibus voluptatem rerum saepe obcaecati provident nulla.`,
+      },
+      {
+        author: "Somebody",
+        comment: `orem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
+      laboriosam qui unde? Aut tempora consequuntur et ea, incidunt dictatemporibus ratione repellendus a exercitationem laboriosam modi, rerum
+      deleniti, repudia reiciendis, ducimus reprehenderit nobis voluptas tempora aliquam officia
+      fuga necessitatibus voluptatem rerum saepe obcaecati provident nulla.`,
+      },
+      {
+        author: "Somebody",
+        comment: `orem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
+      laboriosam qui unde? Aut tempora consequuntur et ea, incidunt dictatemporibus ratione repellendus a exercitationem laboriosam modi, rerum
+      deleniti, repudia reiciendis, ducimus reprehenderit nobis voluptas tempora aliquam officia
+      fuga necessitatibus voluptatem rerum saepe obcaecati provident nulla.`,
+      },
+    ],
   },
   {
-    imgUrl: "https://picsum.photos/seed/picsum/700/250",
+    coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
     authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
     title: "Get out of Web2 now",
     content: content,
@@ -95,7 +129,7 @@ const blogs = [
     commentsCount: 2,
   },
   {
-    imgUrl: "https://picsum.photos/seed/picsum/700/250",
+    coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
     authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
     title: "Get out of Web2 now",
     content: content,
@@ -104,7 +138,7 @@ const blogs = [
     commentsCount: 2,
   },
   {
-    imgUrl: "https://picsum.photos/seed/picsum/700/250",
+    coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
     authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
     title: "Get out of Web2 now",
     content: content,
@@ -113,7 +147,7 @@ const blogs = [
     commentsCount: 2,
   },
   {
-    imgUrl: "https://picsum.photos/seed/picsum/700/250",
+    coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
     authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
     title: "Get out of Web2 now",
     content: content,
@@ -122,7 +156,7 @@ const blogs = [
     commentsCount: 2,
   },
   {
-    imgUrl: "https://picsum.photos/seed/picsum/700/250",
+    coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
     authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
     title: "Get out of Web2 now",
     content: content,
@@ -131,7 +165,7 @@ const blogs = [
     commentsCount: 2,
   },
   {
-    imgUrl: "https://picsum.photos/seed/picsum/700/250",
+    coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
     authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
     title: "Get out of Web2 now",
     content: content,
@@ -140,7 +174,7 @@ const blogs = [
     commentsCount: 2,
   },
   {
-    imgUrl: "https://picsum.photos/seed/picsum/700/250",
+    coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
     authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
     title: "Get out of Web2 now",
     content: content,
@@ -150,30 +184,39 @@ const blogs = [
   },
 ];
 
+const blog = blogs[0];
+
 const BlogPreview = () => {
+  const [showDetails, setShowDetails] = useState(true);
   return (
-    <div className="app__blogPreview">
-      <div className="app__blogPreview-body">
-        {blogs.map((blog) => (
-          <div className="app__blogPreview-item">
-            <img src={blog.imgUrl} />
-            <div className="details">
-              <img src={blog.authorAvatarUrl} />
-              <div className="content">
-                <div>{blog.datePublished}</div>
-                <p>5 mins read</p>
-                <h2>{blog.title}</h2>
-                <p>{blog.content.slice(0, 170)} ...</p>
-                <div className="bottom">
-                  <div className="likes">❤{blog.likesCount}</div>
-                  <div className="comments">💬{blog.commentsCount}</div>
+    <>
+      {showDetails ? (
+        <BlogDetail blog={blog} />
+      ) : (
+        <div className="app__blogPreview">
+          <div className="app__blogPreview-body">
+            {blogs.map((blog) => (
+              <div className="app__blogPreview-item">
+                <img src={blog.coverImgUrl} />
+                <div className="details">
+                  <img src={blog.authorAvatarUrl} />
+                  <div className="content">
+                    <div>{blog.datePublished}</div>
+                    <p>5 mins read</p>
+                    <h2>{blog.title}</h2>
+                    <p>{blog.content.slice(0, 170)} ...</p>
+                    <div className="bottom">
+                      <div className="likes">❤ {blog.likesCount}</div>
+                      <div className="comments">💬 {blog.commentsCount}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      )}
+    </>
   );
 };
 

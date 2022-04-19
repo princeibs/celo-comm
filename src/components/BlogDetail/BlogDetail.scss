@@ -1,0 +1,137 @@
+.app__blogDetail {
+  min-height: 100vh;
+  margin-top: 4rem;
+  width: 98vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app__blogDetail-content {
+  background-color: #ffffff;
+  width: 50vw;
+  margin-top: 1rem;
+  min-height: 100vh;
+  border-radius: 10px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .info {
+    display: flex;
+    margin: 1rem;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 0 0.8rem 0 0.5rem;
+    }
+
+    .details {
+      margin-right: auto;
+    }
+
+    .details > .read-time {
+      font-weight: 700;
+    }
+
+    .details > .date-published {
+      color: rgb(62, 54, 54);
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+
+    .reactions {
+      display: flex;    
+      margin-right: 3rem;
+
+      .l-count {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .title {
+    font-size: 2.8rem;
+    font-weight:900;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .content {
+    text-align: left;
+    font-size: 1.2rem;
+    word-spacing: 4px;
+    margin: 2rem;
+    line-height: 1.9rem;
+  }
+
+  hr {
+    width: 70%;
+  }
+}
+
+.sponsor {
+  cursor: pointer;
+  background-color: pink;
+  width: fit-content; 
+  padding: 1rem; 
+  margin: 5rem 2rem 2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+
+  span {
+    font-size: 2rem;
+    margin-left: .5rem;
+  }
+}
+
+.comments {
+  width: 50vw;
+
+  textarea {
+    width: 48vw;
+    height: 5rem;  
+    border-radius: 5px;  
+    font-size: 1rem;
+    padding: 1rem;
+    outline: none;
+  }
+
+  .comment-list p {
+    font-size: 1.5rem;
+  }
+
+  .comment-item {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+
+    .author-avatar-c {
+      width: 50px; 
+      height: 50px;
+      border-radius: 50%;
+      background-color: purple;
+      margin-right: 1rem;
+      margin-top: 1rem;
+    }
+
+    .comment-item {
+      background-color: white;
+      border-radius: 5px;
+      padding: 1rem;
+      width: 85%;
+      line-height: 25px;
+      word-spacing: 3px;
+    }
+  }
+}
