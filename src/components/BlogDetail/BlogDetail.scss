@@ -5,6 +5,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+
+  @media screen  and (max-width: 450px) {
+    width: 100%;
+    margin-top: 3rem;
+    justify-content: center;
+  }
+   
 }
 
 .app__blogDetail-content {
@@ -20,6 +28,11 @@
     height: auto;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+
+    @media screen  and (max-width: 450px) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
   }
 
   .info {
@@ -62,7 +75,14 @@
     font-weight:900;
     letter-spacing: -1px;
     text-align: center;
-    margin-top: 1.5rem;
+    margin: 1.5rem 2rem 0;
+
+    @media screen  and (max-width: 450px) {
+      font-size: 2rem;
+      font-weight: 800;
+      word-spacing: 2px;
+    }
+    
   }
 
   .content {
@@ -71,10 +91,19 @@
     word-spacing: 4px;
     margin: 2rem;
     line-height: 1.9rem;
+
+    @media screen  and (max-width: 450px) {
+      font-size: 1.1rem;
+      margin: 1.2rem;
+    }
   }
 
   hr {
     width: 70%;
+  }
+
+  @media screen  and (max-width: 450px) {
+    width: 100%;
   }
 }
 
@@ -133,5 +162,13 @@
       line-height: 25px;
       word-spacing: 3px;
     }
+  }
+
+  @media screen and (max-width: 450px) {
+     width: 90vw; 
+
+     textarea {
+       width: 90%;
+     }
   }
 }
