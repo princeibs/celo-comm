@@ -187,7 +187,7 @@ const blogs = [
 const blog = blogs[0];
 
 const BlogPreview = () => {
-  const [showDetails, setShowDetails] = useState(true);
+  const [showDetails, setShowDetails] = useState(false);
   return (
     <>
       {showDetails ? (
