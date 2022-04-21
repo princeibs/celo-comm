@@ -1,7 +1,7 @@
 import React from "react";
-import "./BlogDetail.scss";
+import "./BlogDetails.scss";
 
-const BlogDetail = (props) => {
+const BlogDetails = (props) => {
   const {
     coverImgUrl,
     authorAvatarUrl,
@@ -55,4 +55,4 @@ const BlogDetail = (props) => {
   );
 };
 
-export default BlogDetail;
+export default BlogDetails;
