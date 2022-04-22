@@ -72,8 +72,8 @@ consequuntur dignissimos vitae commodi sunt eligendi nobis officia!`;
 const data = {
   blogs: [
     {
-      coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
-      authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
+      coverImgUrl: "https://picsum.photos/700/250",
+      authorAvatarUrl: "https://picsum.photos/50/50",
       title: "Get out of Web2 now: The web is evolving into Web3.0",
       content: content,
       datePublished: "April 12",
@@ -104,8 +104,8 @@ const data = {
       ],
     },
     {
-      coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
-      authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
+      coverImgUrl: "https://picsum.photos/700/250",
+      authorAvatarUrl: "https://picsum.photos/50/50",
       title: "Get out of Web2 now 1",
       content: content,
       datePublished: "April 12",
@@ -113,8 +113,8 @@ const data = {
       commentsCount: 2,
     },
     {
-      coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
-      authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
+      coverImgUrl: "https://picsum.photos/700/250",
+      authorAvatarUrl: "https://picsum.photos/50/50",
       title: "Get out of Web2 now 2",
       content: content,
       datePublished: "April 12",
@@ -122,15 +122,32 @@ const data = {
       commentsCount: 2,
     },
     {
-      coverImgUrl: "https://picsum.photos/seed/picsum/700/250",
-      authorAvatarUrl: "https://picsum.photos/seed/picsum/50/50",
+      coverImgUrl: "https://picsum.photos/700/250",
+      authorAvatarUrl: "https://picsum.photos/50/50",
       title: "Get out of Web2 now 3",
       content: content,
       datePublished: "April 12",
       likesCount: 5,
       commentsCount: 2,
     },
-  ]
-}
+  ],
+  sellersList: [
+    {
+      sellerAddress: "0x12345",
+      message: "Hey, I want to sell 5RP consequuntur dignissimos vitae commodi sunt eligendi nobis officia!",
+      quantity: 5,
+    },
+    {
+      sellerAddress: "0x17433",
+      message: "Hey, I want to sell 9RP",
+      quantity: 9,
+    },
+    {
+      sellerAddress: "0x34532",
+      message: "Hey, I want to sell 2RP",
+      quantity: 2,
+    },
+  ],
+};
 
 export default data;

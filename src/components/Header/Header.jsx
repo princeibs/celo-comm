@@ -8,6 +8,7 @@ const Header = () => {
         <span>D</span>Blog
       </div>
       <div className="app__header-nav">
+        <div className="write">Write</div>
         <div className="feed">Feed</div>
         <div className="market">Market</div>
         <div className="info">
