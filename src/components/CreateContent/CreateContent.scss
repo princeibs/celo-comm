@@ -43,7 +43,7 @@
         height: auto;
         outline: none;
         border: none;
-        font-size: 2rem;
+        font-size: 3rem;
         font-weight: 800;
       }
     }
@@ -61,7 +61,7 @@
         min-height: 70vh;
         margin-top: 2rem;
         padding: 1rem;
-        font-size: 1.05rem;
+        font-size: 1.1rem;
         word-spacing: 5px;
         line-height: 1.7rem;
       }
@@ -81,7 +81,7 @@
         color: white;
         border-radius: 5px;
         box-shadow: 0 0 5px gray;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
           background-color: white;
@@ -103,7 +103,7 @@
         color: white;
         border-radius: 5px;
         box-shadow: 0 0 5px gray;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
           background-color: white;
@@ -125,7 +125,7 @@
         color: white;
         border-radius: 5px;
         box-shadow: 0 0 5px gray;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
           background-color: white;
@@ -136,6 +136,31 @@
           background-color: green;
           color: white;
         }
+      }
+    }
+
+    .preview {
+      margin: 3rem;
+      min-height: 80vh;
+
+      .preview-title {
+        font-size: 3rem;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      hr {
+        width: 70%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .preview-content {
+        margin: 1rem;
+        // padding: 1rem;
+        // font-size: 1.05rem;
+        // word-spacing: 5px;
+        // line-height: 1.7rem;
       }
     }
   }

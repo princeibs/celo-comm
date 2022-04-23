@@ -7,17 +7,19 @@ const Write = () => {
   const [imgUrl, setImgUrl] = useState();
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
-  const [showEditView, setShowEditView] = useState(false);
+  const [showEditView, setShowEditView] = useState(true);
   const [converted, setConverted] = useState();
 
   const processMd = () => {
-    setConverted(content);    
-    // const md = "#Hello world"
-    // const converter = new showdown.Converter();
-    // const html = converter.makeHtml(md);
-    // const div = document.createElement("div");
-    // div.innerHTML += html;   
-    
+    const converter = new showdown.Converter();
+    const html = converter.makeHtml(content);
+    const div = document.createElement("div");
+    div.innerHTML += html;
+
+    // document.getElementById("root").innerHTML += html;
+
+    console.log(div);
+    setConverted(html);
     setShowEditView(false);
   };
 
@@ -64,7 +66,13 @@ const Write = () => {
             </div>
           </>
         ) : (
-          <div className="preview">{converted}</div>
+          <div className="preview">
+            <div className="preview-title">{title}</div>
+            <hr />
+            <div id="preview-content" className="preview-content">
+              {converted}
+            </div>
+          </div>
         )}
         <div className="menu">
           <div onClick={() => setShowEditView(true)} className="write-btn">

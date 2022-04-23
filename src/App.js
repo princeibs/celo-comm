@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, CreateContent, BlogPreview, BlogDetails, Market, Footer } from "./components";
+import { Header, CreateContent, BlogsList, BlogDetails, Market, Footer } from "./components";
 import data from "./data";
 
 import "./App.scss";
@@ -9,7 +9,7 @@ const App = () => {
     <div>
       <Header />
       <CreateContent />
-      <BlogPreview />
+      <BlogsList />
       <BlogDetails blog={data.blogs[0]} />
       <Market />
       <Footer />
