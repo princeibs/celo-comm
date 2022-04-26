@@ -4,7 +4,7 @@ import showdown from "showdown";
 import "./CreateContent.scss";
 
 const Write = () => {
-  const [imgUrl, setImgUrl] = useState();
+  const [imgUrl, setImgUrl] = useState("https://picsum.photos/700/250");
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
   const [showEditView, setShowEditView] = useState(true);
@@ -13,12 +13,7 @@ const Write = () => {
   const processMd = () => {
     const converter = new showdown.Converter();
     const html = converter.makeHtml(content);
-    const div = document.createElement("div");
-    div.innerHTML += html;
 
-    // document.getElementById("root").innerHTML += html;
-
-    console.log(div);
     setConverted(html);
     setShowEditView(false);
   };
@@ -69,9 +64,10 @@ const Write = () => {
           <div className="preview">
             <div className="preview-title">{title}</div>
             <hr />
-            <div id="preview-content" className="preview-content">
-              {converted}
-            </div>
+            <div
+              className="preview-content"
+              dangerouslySetInnerHTML={{ __html: converted }}
+            />
           </div>
         )}
         <div className="menu">

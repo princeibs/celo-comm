@@ -1,7 +1,7 @@
 import React from "react";
 
 import data from "../../data";
-import "./BlogPreview.scss";
+import "./BlogsList.scss";
 
 const blogs = data.blogs;
 
