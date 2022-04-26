@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  margin-top: 3rem;
 }
 
 .app__market-content {
@@ -43,7 +44,7 @@
 
     textarea {
       width: 50%;
-      height: 130px;
+      height: 100px;
       margin: 1rem;
       padding: 1rem;
       font-size: 1.2rem;
@@ -77,6 +78,10 @@
         justify-content: center;
         align-items: center;
         color: white;
+
+        &:active {
+          background-color: rgb(12, 206, 12);
+        }
       }
 
       .sell-btn,
@@ -91,6 +96,50 @@
 
   .buy-view {
     margin: 1rem;
+
+    .bfa {
+      display: flex;
+      justify-content: center;
+
+      .bfa-btn {
+        cursor: pointer;
+        background-color: green;
+        width: fit-content;
+        padding: 1rem;
+        border-radius: 5px;
+        color: white;
+        margin: 0 .5rem;
+
+        &:hover {
+          background-color: rgb(12, 206, 12);
+        }
+
+        &:active {
+          background-color: green;
+        }
+      }      
+
+      input {
+        outline: none; 
+        border: solid 1px gray;
+        border-radius: 10px;     
+        padding: 0 .5rem; 
+        font-size: 1.3rem; 
+        width: 30%;
+
+        &:active, &:focus {      
+          border: solid 1px yellow;
+        }
+      }
+    }
+
+    .buy-view--subtitle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+    }
+
 
     .item {
       margin: 1rem 0;
@@ -142,6 +191,10 @@
 
           &:hover {
             background-color: rgb(12, 206, 12);
+          }
+
+          &:active {
+            background-color: green;
           }
         }
       }

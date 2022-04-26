@@ -27,9 +27,15 @@
   align-items: center;
   margin-right: 1rem;
 
-  .feed, .market, .write {
+  .posts, .market, .write {
+    cursor: pointer;
     margin: 0 1rem;
     font-weight: 600;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      color: white;
+    }
   }
 
   .info div {

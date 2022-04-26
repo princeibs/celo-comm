@@ -5,14 +5,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  transition: all .3s ease-in;
 
-  @media screen  and (max-width: 450px) {
+  @media screen and (max-width: 450px) {
     width: 100%;
     margin-top: 3rem;
     justify-content: center;
   }
-   
 }
 
 .app__blogDetail-content {
@@ -20,7 +19,7 @@
   width: 50vw;
   margin-top: 1rem;
   min-height: 100vh;
-  border-radius: 10px;
+  border-radius: 10px;  
 
   img {
     object-fit: cover;
@@ -29,7 +28,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 
-    @media screen  and (max-width: 450px) {
+    @media screen and (max-width: 450px) {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
@@ -61,28 +60,32 @@
     }
 
     .reactions {
-      display: flex;    
+      display: flex;
       margin-right: 3rem;
 
       .l-count {
         margin-right: 1rem;
+        cursor: pointer;
+      }
+
+      .c-count a {
+        text-decoration: none;
       }
     }
   }
 
   .title {
     font-size: 2.8rem;
-    font-weight:900;
+    font-weight: 900;
     letter-spacing: -1px;
     text-align: center;
     margin: 1.5rem 2rem 0;
 
-    @media screen  and (max-width: 450px) {
+    @media screen and (max-width: 450px) {
       font-size: 2rem;
       font-weight: 800;
       word-spacing: 2px;
     }
-    
   }
 
   .content {
@@ -92,7 +95,7 @@
     margin: 2rem;
     line-height: 1.9rem;
 
-    @media screen  and (max-width: 450px) {
+    @media screen and (max-width: 450px) {
       font-size: 1.1rem;
       margin: 1.2rem;
     }
@@ -102,25 +105,53 @@
     width: 70%;
   }
 
-  @media screen  and (max-width: 450px) {
+  @media screen and (max-width: 450px) {
     width: 100%;
   }
 }
 
 .sponsor {
-  cursor: pointer;
-  background-color: pink;
-  width: fit-content; 
-  padding: 1rem; 
-  margin: 5rem 2rem 2rem;
-  border-radius: 10px;
-  font-weight: 700;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  margin: 3rem 0 2rem;
 
-  span {
-    font-size: 2rem;
-    margin-left: .5rem;
+  .sponsor-txt {
+    margin: 0.5rem;
+    font-weight: 700;
+  }
+
+  .sponsor-input {
+    margin: .5rem 0;
+    input {
+      width: 3rem;
+      padding: 3px;
+      margin-left: 5px;
+      outline: none;
+      border: solid 1px gray;
+      font-size: 1.1rem;
+      border-radius: 5px;
+    }
+  }
+
+  .buy {
+    cursor: pointer;
+    background-color: pink;
+    width: fit-content;
+    padding: .5rem 2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 2rem;
+      margin-left: 0.5rem;
+    }
+
+    &:active {
+      background-color: rgb(244, 111, 133);
+    }
   }
 }
 
@@ -129,11 +160,26 @@
 
   textarea {
     width: 48vw;
-    height: 5rem;  
-    border-radius: 5px;  
+    height: 5rem;
+    border-radius: 5px;
     font-size: 1rem;
     padding: 1rem;
     outline: none;
+  }
+
+  .comment-btn {
+    cursor: pointer;
+    background-color: green;
+    margin-left: auto;
+    margin-top: .2rem;
+    width: fit-content;    
+    padding: .5rem;
+    border-radius: 5px;
+    color: white;
+
+    &:active {
+      background-color: rgb(12, 256, 12);
+    }
   }
 
   .comment-list p {
@@ -146,7 +192,7 @@
     justify-content: center;
 
     .author-avatar-c {
-      width: 50px; 
+      width: 50px;
       height: 50px;
       border-radius: 50%;
       background-color: purple;
@@ -165,10 +211,10 @@
   }
 
   @media screen and (max-width: 450px) {
-     width: 90vw; 
+    width: 90vw;
 
-     textarea {
-       width: 90%;
-     }
+    textarea {
+      width: 90%;
+    }
   }
 }

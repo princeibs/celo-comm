@@ -1,11 +1,14 @@
 import React from "react";
+import { readingTime } from "reading-time-estimator";
 
-import data from "../../data";
 import "./BlogsList.scss";
 
-const blogs = data.blogs;
-
-const BlogPreview = () => {
+const BlogPreview = (props) => {
+  const blogs = props.blogs;
+  const handleTitleClick = (blog) => {
+    props.showDetails("details");
+    props.getDetails(blog);
+  };
   return (
     <>
       <div className="app__blogPreview">
@@ -13,16 +16,27 @@ const BlogPreview = () => {
           {blogs.map((blog) => (
             <div className="app__blogPreview-item">
               <img src={blog.coverImgUrl} />
-              <div className="details">
+              <div className="preview-details">
                 <img src={blog.authorAvatarUrl} />
-                <div className="content">
-                  <div>{blog.datePublished}</div>
-                  <p>5 mins read</p>
-                  <h2>{blog.title}</h2>
+                <div className="preview-content">
+                  <div className="preview-datePublished">
+                    {blog.datePublished}
+                  </div>
+                  <div className="preview-readingTime">
+                    {readingTime(blog.content).minutes} min read
+                  </div>
+                  <div
+                    onClick={() => handleTitleClick(blog)}
+                    className="preview-title"
+                  >
+                    {blog.title}
+                  </div>
                   <p>{blog.content.slice(0, 170)} ...</p>
-                  <div className="bottom">
-                    <div className="likes">❤ {blog.likesCount}</div>
-                    <div className="comments">💬 {blog.commentsCount}</div>
+                  <div className="preview-bottom">
+                    <div className="preview-likes">❤ {blog.likesCount}</div>
+                    <div className="preview-comments">
+                      💬 {blog.commentsCount}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -5,7 +5,7 @@
   width: 98vw;
 
   @media screen and (max-width: 450px) {
-      width: 100%;
+    width: 100%;
   }
 
   .app__blogPreview-body {
@@ -30,7 +30,7 @@
   border-radius: 10px;
 
   @media screen and (max-width: 450px) {
-      width: 90%;
+    width: 90%;
   }
 
   img {
@@ -45,7 +45,7 @@
     }
   }
 
-  .details {
+  .preview-details {
     display: flex;
     margin: 1rem;
 
@@ -58,31 +58,39 @@
       margin-right: 1rem;
 
       @media screen and (max-width: 450px) {
-      margin-right: .5rem;
+        margin-right: 0.5rem;
       }
     }
 
-    .content {
+    .preview-content {
       width: 88%;
+      display: flex;
+      flex-direction: column;
 
       @media screen and (max-width: 450px) {
-      width: 81%;
+        width: 81%;
       }
 
-      h2 {
+      .preview-title {
         cursor: pointer;
-        color: rgba(0, 0, 255, 0.794);
+        font-size: 2rem;
+        font-weight: 800;
+        color: blue;
+        
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
-      .bottom {
-        display: flex;
-        justify-content: flex-end;
+      .preview-readingTime {
+        margin: 0.5rem 0;
+      }
 
-        .likes {
-          color: red;
-          width: 3rem;
+      .preview-bottom {
+        display: flex;
+
+        .preview-likes {
           margin-right: 1em;
-          display: block ;
         }
       }
     }
