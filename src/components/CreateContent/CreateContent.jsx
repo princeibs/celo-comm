@@ -46,13 +46,13 @@ const Write = (props) => {
                 value={imgUrl}
                 placeholder="Start typing image URL to preview image"
               />
-            </div>
+            </div>            
             <div className="edit-title">
               <input
                 type="text"
                 name="title"
                 value={title}
-                placeholder="Enter your article title here"
+                placeholder="Title here"
                 onChange={handleInputFieldsChange}
               />
             </div>
