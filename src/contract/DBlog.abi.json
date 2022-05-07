@@ -1,403 +1,314 @@
 [
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "balanceSheet",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_postSlug",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "buyCoffee",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "buyRpFa",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "buyRpFf",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "commentsMapping",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "postSlug",
-				"type": "string"
-			},
-			{
-				"internalType": "address payable",
-				"name": "commenterAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "commentMessage",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_userAddress",
-				"type": "address"
-			}
-		],
-		"name": "createNewUser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_slug",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_coverImgUrl",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_title",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_content",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_datePublished",
-				"type": "uint256"
-			}
-		],
-		"name": "createPost",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_slug",
-				"type": "string"
-			}
-		],
-		"name": "getPost",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "slug",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "coverImgUrl",
-				"type": "string"
-			},
-			{
-				"internalType": "address payable",
-				"name": "authorAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "title",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "content",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "datePublished",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address[]",
-				"name": "likes",
-				"type": "address[]"
-			},
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "postSlug",
-						"type": "string"
-					},
-					{
-						"internalType": "address payable",
-						"name": "commenterAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "commentMessage",
-						"type": "string"
-					}
-				],
-				"internalType": "struct DBlog.Comment[]",
-				"name": "comments",
-				"type": "tuple[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_postSlug",
-				"type": "string"
-			}
-		],
-		"name": "likePost",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_slug",
-				"type": "string"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_commenterAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_commentMessage",
-				"type": "string"
-			}
-		],
-		"name": "makeComment",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"name": "postsMapping",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "slug",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "coverImgUrl",
-				"type": "string"
-			},
-			{
-				"internalType": "address payable",
-				"name": "authorAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "title",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "content",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "datePublished",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_postSlug",
-				"type": "string"
-			}
-		],
-		"name": "removePost",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_message",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_qty",
-				"type": "uint256"
-			}
-		],
-		"name": "sellRp",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "sellersList",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "sellerAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "message",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "qty",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "slugs",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_postSlug",
-				"type": "string"
-			}
-		],
-		"name": "unlikePost",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
+  {
+      "inputs": [
+          {
+              "internalType": "string",
+              "name": "_postSlug",
+              "type": "string"
+          },
+          {
+              "internalType": "uint256",
+              "name": "_amount",
+              "type": "uint256"
+          }
+      ],
+      "name": "buyCoffee",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+  },
+  {
+      "inputs": [
+          {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+          },
+          {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+          }
+      ],
+      "name": "commentsMapping",
+      "outputs": [
+          {
+              "internalType": "string",
+              "name": "postSlug",
+              "type": "string"
+          },
+          {
+              "internalType": "address payable",
+              "name": "commenterAddress",
+              "type": "address"
+          },
+          {
+              "internalType": "string",
+              "name": "commentMessage",
+              "type": "string"
+          }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+  },
+  {
+      "inputs": [
+          {
+              "internalType": "string",
+              "name": "_slug",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "_coverImgUrl",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "_title",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "_content",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "_datePublished",
+              "type": "string"
+          }
+      ],
+      "name": "createPost",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+  },
+  {
+      "inputs": [
+          {
+              "internalType": "string",
+              "name": "_slug",
+              "type": "string"
+          }
+      ],
+      "name": "getPost",
+      "outputs": [
+          {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+          },
+          {
+              "internalType": "string",
+              "name": "slug",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "coverImgUrl",
+              "type": "string"
+          },
+          {
+              "internalType": "address payable",
+              "name": "authorAddress",
+              "type": "address"
+          },
+          {
+              "internalType": "string",
+              "name": "title",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "datePublished",
+              "type": "string"
+          },
+          {
+              "internalType": "address[]",
+              "name": "likes",
+              "type": "address[]"
+          },
+          {
+              "components": [
+                  {
+                      "internalType": "string",
+                      "name": "postSlug",
+                      "type": "string"
+                  },
+                  {
+                      "internalType": "address payable",
+                      "name": "commenterAddress",
+                      "type": "address"
+                  },
+                  {
+                      "internalType": "string",
+                      "name": "commentMessage",
+                      "type": "string"
+                  }
+              ],
+              "internalType": "struct DBlog.Comment[]",
+              "name": "comments",
+              "type": "tuple[]"
+          }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+  },
+  {
+      "inputs": [],
+      "name": "getPostLength",
+      "outputs": [
+          {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+          }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+  },
+  {
+      "inputs": [],
+      "name": "getSlugs",
+      "outputs": [
+          {
+              "internalType": "string[]",
+              "name": "",
+              "type": "string[]"
+          }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+  },
+  {
+      "inputs": [
+          {
+              "internalType": "string",
+              "name": "_postSlug",
+              "type": "string"
+          }
+      ],
+      "name": "likePost",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+  },
+  {
+      "inputs": [
+          {
+              "internalType": "string",
+              "name": "_slug",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "_commentMessage",
+              "type": "string"
+          }
+      ],
+      "name": "makeComment",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+  },
+  {
+      "inputs": [
+          {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+          }
+      ],
+      "name": "postsMapping",
+      "outputs": [
+          {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+          },
+          {
+              "internalType": "string",
+              "name": "slug",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "coverImgUrl",
+              "type": "string"
+          },
+          {
+              "internalType": "address payable",
+              "name": "authorAddress",
+              "type": "address"
+          },
+          {
+              "internalType": "string",
+              "name": "title",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+          },
+          {
+              "internalType": "string",
+              "name": "datePublished",
+              "type": "string"
+          }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+  },
+  {
+      "inputs": [
+          {
+              "internalType": "string",
+              "name": "_postSlug",
+              "type": "string"
+          }
+      ],
+      "name": "removePost",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+  },
+  {
+      "inputs": [
+          {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+          }
+      ],
+      "name": "slugs",
+      "outputs": [
+          {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+          }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+  },
+  {
+      "inputs": [
+          {
+              "internalType": "string",
+              "name": "_postSlug",
+              "type": "string"
+          }
+      ],
+      "name": "unlikePost",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+  }
 ]

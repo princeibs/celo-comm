@@ -5,13 +5,13 @@ import "./CreateContent.scss";
 import slugify from "../utils/slugify";
 
 const Write = (props) => {
-  const [imgUrl, setImgUrl] = useState("https://picsum.photos/700/250");
+  const [imgUrl, setImgUrl] = useState();
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
   const [showEditView, setShowEditView] = useState(true);
   const [converted, setConverted] = useState();
 
-  const key = title?.length > 1 ? slugify(title) : "";
+  const slug = title?.length > 1 ? slugify(title + " " + props.postsCount) : "";
 
   const processMd = () => {
     const converter = new showdown.Converter();
@@ -23,13 +23,17 @@ const Write = (props) => {
 
   const handleInputFieldsChange = (e) => {
     const { name, value } = e.target;
-    if (name === "imgUrl") setImgUrl(value);
+    if (name === "imageUrl") setImgUrl(value);
     if (name === "title") setTitle(value);
     if (name === "content") setContent(value);
   };
 
-  const handlePublishBtn = () => {
-    props.getNewlyCreatedPost(key, title, content);
+  const handlePublishBtn = async () => {
+    await props.getNewlyCreatedPost(slug, imgUrl, title, content);
+    // clears editing fields
+    setImgUrl();
+    setTitle();
+    setContent();
   };
 
   return (
@@ -46,7 +50,7 @@ const Write = (props) => {
                 value={imgUrl}
                 placeholder="Start typing image URL to preview image"
               />
-            </div>            
+            </div>
             <div className="edit-title">
               <input
                 type="text"
@@ -62,7 +66,7 @@ const Write = (props) => {
                 name="content"
                 value={content}
                 onChange={handleInputFieldsChange}
-                placeholder="Write your content here"
+                placeholder="Write your content here (in markdown)"
               />
             </div>
           </>

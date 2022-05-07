@@ -13,7 +13,7 @@
   font-family: var(--font-logo);
   font-size: 2rem;
   margin-left: 2.5rem;
-  
+
   span {
     font-family: inherit;
     background-color: rgb(28, 210, 56);
@@ -27,23 +27,32 @@
   align-items: center;
   margin-right: 1rem;
 
-  .posts, .market, .write {
+  .posts,
+  .market,
+  .write {
     cursor: pointer;
     margin: 0 1rem;
     font-weight: 600;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       color: white;
     }
   }
 
-  .info div {
-    background-color: white;
-    border-radius: 5px;
-    margin: .5rem;
-    padding: .1rem .5rem;
-    font-size: .9rem;
-    font-weight: 600;
+  .info {
+    display: flex;
+    align-items: center;
+
+    .header--balance {
+      background-color: white;
+      height: fit-content;
+      border-radius: 5px;
+      margin: 0.5rem;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
   }
 }
+

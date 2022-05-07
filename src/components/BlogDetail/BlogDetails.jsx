@@ -1,48 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { readingTime } from "reading-time-estimator";
+import Jazzicon, { jsNumberForAddress } from "react-jazzicon";
 import "./BlogDetails.scss";
+import processMd from "../utils/processMd";
 
 const BlogDetails = (props) => {
   const {
-    postId,
+    id,
+    slug,
     coverImgUrl,
-    authorAvatarUrl,
+    authorAddress,
     title,
     content,
     datePublished,
-    likesCount,
-    commentsCount,
+    likes,
     comments,
   } = props.blog;
 
   const [coffeeQty, setCoffeeQty] = useState(1);
   const [commentMessage, setCommentMessage] = useState();
+  const [, updateState] = useState();
+
+  const forceUpdate = useCallback(() => updateState({}), []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleCoffeQtyChange = (e) => {
     setCoffeeQty(e.target.value);
   };
 
-  const handleCommentMessage = (e) => {
-    setCommentMessage(e.target.value);
-  };
-
   const buyCoffee = () => {
+    props.buyCoffee(slug, coffeeQty);
     console.log(
       "Successfully bought " +
         coffeeQty +
         " coffee for " +
-        authorAvatarUrl +
+        authorAddress +
         "'s post with id: " +
-        postId
+        id
     );
   };
 
-  const likePost = () => {
-    console.log("Successfully liked post " + postId);
+  const likePost = async () => {
+    likes.includes(props.userwa)
+      ? await props.unlikePost(slug)
+      : await props.likePost(slug);
+
+    forceUpdate();
   };
 
-  const sendComment = () => {
-    console.log("Successfully said " + commentMessage + " on post " + postId);
+  const sendComment = async () => {
+    await props.makeComment(slug, commentMessage);
+    console.log("Successfully said " + commentMessage + " on post " + slug);
+    setCommentMessage(); // clears edit comment field
   };
 
   return (
@@ -50,7 +62,9 @@ const BlogDetails = (props) => {
       <div className="app__blogDetail-content">
         <img src={coverImgUrl} />
         <div className="info">
-          <img src={authorAvatarUrl} />
+          <div className="info-authorAvatar">          
+            <Jazzicon diameter={50} seed={jsNumberForAddress(authorAddress)} />
+          </div>
           <div className="details">
             <div className="read-time">
               {readingTime(content).minutes} min read
@@ -58,17 +72,24 @@ const BlogDetails = (props) => {
             <div className="date-published">Published on {datePublished}</div>
           </div>
           <div className="reactions">
-            <div className="l-count" onClick={() => likePost()}>
-              ❤ {likesCount}
+            <div
+              className="l-count"
+              style={{ color: likes.includes(props.userwa) ? "red" : "" }}
+              onClick={() => likePost()}
+            >
+              ❤ {likes.length}
             </div>
             <div className="c-count">
-              <a href="#comments-section">💬 {commentsCount}</a>
+              <a href="#comments-section">💬 {comments.length}</a>
             </div>
           </div>
         </div>
         <div className="title">{title}</div>
-        <hr />
-        <div className="content">{content}</div>
+        <hr className="hr-below-title--bd" />
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: processMd(content) }}
+        />
       </div>
 
       <div className="sponsor">
@@ -93,7 +114,7 @@ const BlogDetails = (props) => {
           <textarea
             placeholder="Enter your comment here"
             value={commentMessage}
-            onChange={handleCommentMessage}
+            onChange={(e) => setCommentMessage(e.target.value)}
           />
           <div className="comment-btn" onClick={() => sendComment()}>
             Comment
@@ -103,8 +124,13 @@ const BlogDetails = (props) => {
           {comments.length > 0 && <p>Comments</p>}
           {comments?.map((comment) => (
             <div className="comment-item">
-              <div className="author-avatar-c"></div>
-              <div className="comment-item">{comment.comment}</div>
+              <div className="author-avatar-c">
+                <Jazzicon
+                  diameter={50}
+                  seed={jsNumberForAddress(comment.commenterAddress)}
+                />
+              </div>
+              <div className="comment-item">{comment.commentMessage}</div>
             </div>
           ))}
         </div>

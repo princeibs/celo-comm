@@ -45,24 +45,17 @@ contract DBlog {
         address payable authorAddress;
         string title;
         string content;
-        uint256 datePublished;
+        string datePublished;
         address[] likes;
     }
 
     // State variables
     uint256 private postIndex = 0;
     string[] public slugs; // used to iterater over posts mapping
-    Seller[] public sellersList;
-    mapping(address => uint256) public balanceSheet;
     mapping(string => Post) public postsMapping;
     mapping(string => Comment[]) public commentsMapping;
     address internal cUsdTokenAddress =
         0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
-
-    // create a new user and gift them 5 RPs
-    function createNewUser(address _userAddress) public {
-        balanceSheet[_userAddress] = 5;
-    }
 
     // create new post
     function createPost(
@@ -70,7 +63,7 @@ contract DBlog {
         string memory _coverImgUrl,
         string memory _title,
         string memory _content,
-        uint256 _datePublished
+        string memory _datePublished
     ) public {
         address[] memory likes;
         slugs.push(_slug);
@@ -97,7 +90,7 @@ contract DBlog {
             address payable authorAddress,
             string memory title,
             string memory content,
-            uint256 datePublished,
+            string memory datePublished,
             address[] memory likes,
             Comment[] memory comments
         )
@@ -116,9 +109,14 @@ contract DBlog {
         comments = commentsMapping[_slug];
     }
 
-    // delete post with slug @_postSlug
-    function removePost(string memory _postSlug) public {
-        delete postsMapping[_postSlug];
+    //
+    function getPostLength() public view returns (uint256) {
+        return postIndex;
+    }
+
+    //
+    function getSlugs() public view returns (string[] memory) {
+        return slugs;
     }
 
     // like a post
@@ -144,7 +142,6 @@ contract DBlog {
         public
         payable
     {
-        require(msg.sender.balance / 1 ether >= _amount, "Insufficent Balance");
         require(
             IERC20Token(cUsdTokenAddress).transferFrom(
                 msg.sender,
@@ -156,57 +153,14 @@ contract DBlog {
     }
 
     // make comment on a post
-    function makeComment(
-        string memory _slug,
-        address payable _commenterAddress,
-        string memory _commentMessage
-    ) public {
+    function makeComment(string memory _slug, string memory _commentMessage)
+        public
+    {
         Comment memory newComment = Comment(
             _slug,
-            _commenterAddress,
+            payable(msg.sender),
             _commentMessage
         );
         commentsMapping[_slug].push(newComment);
-    }
-
-    // put Reading Points (RP) for sell
-    function sellRp(string memory _message, uint256 _qty) public {
-        // check if user has enough RP(s) in wallet
-        require(
-            balanceSheet[payable(msg.sender)] >= _qty,
-            "Insufficient RPs to sell"
-        );
-        balanceSheet[payable(msg.sender)] -= _qty; // deduct quantity from sellers balance
-        sellersList.push(Seller(payable(msg.sender), _message, _qty)); // add seller to sellers list
-    }
-
-    // buy @_amount Reading Points (RP) from fren with address @_from
-    function buyRpFf(address _from, uint256 _amount) public payable {
-        // check if user has enough balance in wallet
-        require(msg.sender.balance / 1 ether >= _amount, "Insufficent Balance");
-        require(
-            IERC20Token(cUsdTokenAddress).transferFrom(
-                msg.sender,
-                _from,
-                _amount
-            ),
-            "Transfer failed."
-        );
-        balanceSheet[msg.sender] += _amount; // increase user's RP based on amount purchased
-    }
-
-    // buy Reading Points (RP) from app
-    function buyRpFa(uint256 _amount) public payable {
-        // check if user has enough balance in wallet
-        require(msg.sender.balance / 1 ether >= _amount, "Insufficent Balance");
-        require(
-            IERC20Token(cUsdTokenAddress).transferFrom(
-                msg.sender,
-                address(this), // change this later to my celo wallet address
-                _amount
-            ),
-            "Transfer failed."
-        );
-        balanceSheet[msg.sender] += _amount; // increase user's RP based on amount purchased
     }
 }
