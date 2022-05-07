@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/celo-comm/static/css/main.f12bc389.chunk.css",
+    "main.js": "/celo-comm/static/js/main.b4b116af.chunk.js",
+    "main.js.map": "/celo-comm/static/js/main.b4b116af.chunk.js.map",
+    "runtime-main.js": "/celo-comm/static/js/runtime-main.e7d287d2.js",
+    "runtime-main.js.map": "/celo-comm/static/js/runtime-main.e7d287d2.js.map",
+    "static/js/2.21ec51f3.chunk.js": "/celo-comm/static/js/2.21ec51f3.chunk.js",
+    "static/js/2.21ec51f3.chunk.js.map": "/celo-comm/static/js/2.21ec51f3.chunk.js.map",
+    "index.html": "/celo-comm/index.html",
+    "static/css/main.f12bc389.chunk.css.map": "/celo-comm/static/css/main.f12bc389.chunk.css.map",
+    "static/js/2.21ec51f3.chunk.js.LICENSE.txt": "/celo-comm/static/js/2.21ec51f3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e7d287d2.js",
+    "static/js/2.21ec51f3.chunk.js",
+    "static/css/main.f12bc389.chunk.css",
+    "static/js/main.b4b116af.chunk.js"
+  ]
+}
