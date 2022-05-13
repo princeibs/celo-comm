@@ -219,7 +219,7 @@ const App = () => {
 
   const buyCoffee = async (postSlug, _amount) => {
     alertOn("Buying this author a coffee ...");
-    const amount = new BigNumber(_amount).shiftedBy(ERC20_DECIMALS);
+    const amount = new BigNumber(_amount).shiftedBy(ERC20_DECIMALS).toString();
     try {
       await approvePayment(amount);
     } catch (error) {
@@ -238,12 +238,6 @@ const App = () => {
       );
     }
 
-    setTimeout(
-      () =>
-        alertOn("Successfully bought " + _amount + " coffee for this author"),
-      () => alertOff(),
-      5000
-    );
     await getUserBalance();
     setActivePage("posts");
   };
