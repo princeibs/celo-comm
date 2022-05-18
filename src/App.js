@@ -61,8 +61,8 @@ const App = () => {
     setActivePage(active);
   };
 
-  const alertOn = (aletMsg) => {
-    setalertMessage(aletMsg);
+  const alertOn = (alertMsg) => {
+    setalertMessage(alertMsg);
     setShowAlertBox(true);
   };
 
@@ -74,10 +74,10 @@ const App = () => {
       erc20abi,
       cUSDContractAddress
     );
-    const response = await cUSDContract.methods
+   return await cUSDContract.methods
       .approve(dBlogContractAddress, _amount)
       .send({ from: userWalletAddress });
-    return response;
+
   };
 
   // connect wallet to app
@@ -147,7 +147,7 @@ const App = () => {
     const _posts = [];
     for (let i = 0; i < slugs.length; i++) {
       let postSlug = slugs[i];
-      let blogPost = new Promise(async (resolve, reject) => {
+      let blogPost = new Promise(async (resolve) => {
         let getPost = await dBlogContract.methods.getPost(postSlug).call();
         resolve({
           id: getPost[0],
@@ -244,7 +244,7 @@ const App = () => {
 
   //
   return (
-    <div>    
+    <div>
       <Header
         cUsdBalance={cUsdBalance}
         userwa={userWalletAddress}
